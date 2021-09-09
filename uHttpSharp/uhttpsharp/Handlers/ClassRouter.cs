@@ -125,7 +125,7 @@ namespace uhttpsharp.Handlers
             var inputHandler = Expression.Parameter(typeof(T), "instance");
             var inputObject = Expression.Parameter(typeof(string), "input");
 
-            var tryParseMethod = parameterType.GetMethod("TryParse", new[] {typeof(string), parameterType.MakeByRefType()});
+            var tryParseMethod = parameterType.GetMethod("TryParse", new[] { typeof(string), parameterType.MakeByRefType() });
 
             Expression body;
 
@@ -134,11 +134,11 @@ namespace uhttpsharp.Handlers
                 var handlerConverted = Expression.Convert(inputHandler, arg);
                 var objectConverted =
                     Expression.Convert(
-                        Expression.Call(typeof(Convert).GetMethod("ChangeType", new[] {typeof(object), typeof(Type)}), inputObject,
+                        Expression.Call(typeof(Convert).GetMethod("ChangeType", new[] { typeof(object), typeof(Type) }), inputObject,
                             Expression.Constant(parameterType)), parameterType);
 
-                var indexerExpression = Expression.Call (handlerConverted, indexer, httpContext, objectConverted);
-                var returnValue = Expression.Convert (indexerExpression, typeof(Task<T>));
+                var indexerExpression = Expression.Call(handlerConverted, indexer, httpContext, objectConverted);
+                var returnValue = Expression.Convert(indexerExpression, typeof(Task<T>));
 
                 body = returnValue;
             }
@@ -156,7 +156,7 @@ namespace uhttpsharp.Handlers
                     Expression.Convert(Expression.Constant(null), typeof(Task<T>)));
                 body =
                     Expression.Block(
-                        new[] {inputConvertedVar},
+                        new[] { inputConvertedVar },
                         Expression.IfThen(
                             Expression.Call(tryParseMethod, inputObject,
                                 inputConvertedVar),

@@ -86,8 +86,8 @@ namespace uhttpsharp
             {
                 new KeyValuePair<string, string>("Date", DateTime.UtcNow.ToString("R")),
                 new KeyValuePair<string, string>("content-type", contentType),
-                new KeyValuePair<string, string>("connection", keepAlive ? "keep-alive" : "close"), 
-                new KeyValuePair<string, string>("content-length", body.Length.ToString(CultureInfo.InvariantCulture)), 
+                new KeyValuePair<string, string>("connection", keepAlive ? "keep-alive" : "close"),
+                new KeyValuePair<string, string>("content-length", body.Length.ToString(CultureInfo.InvariantCulture)),
             }));
         }
 
@@ -101,10 +101,10 @@ namespace uhttpsharp
 
     public sealed class EmptyHttpResponse : HttpResponseBase
     {
-        
+
         public EmptyHttpResponse(HttpResponseCode code, IHttpHeaders headers) : base(code, headers)
         {
-            
+
         }
 
         public static IHttpResponse Create(HttpResponseCode code = HttpResponseCode.Ok, bool keepAlive = true)
@@ -113,8 +113,8 @@ namespace uhttpsharp
             {
                 new KeyValuePair<string, string>("Date", DateTime.UtcNow.ToString("R")),
                 new KeyValuePair<string, string>("content-type", "text/html"),
-                new KeyValuePair<string, string>("connection", keepAlive ? "keep-alive" : "close"), 
-                new KeyValuePair<string, string>("content-length", "0"), 
+                new KeyValuePair<string, string>("connection", keepAlive ? "keep-alive" : "close"),
+                new KeyValuePair<string, string>("content-length", "0"),
             }));
         }
 
@@ -127,7 +127,7 @@ namespace uhttpsharp
     public sealed class StringHttpResponse : HttpResponseBase
     {
         private readonly string _body;
-        
+
         public StringHttpResponse(string body, HttpResponseCode code, IHttpHeaders headers) : base(code, headers)
         {
             _body = body;
@@ -145,8 +145,8 @@ namespace uhttpsharp
             {
                 new KeyValuePair<string, string>("Date", DateTime.UtcNow.ToString("R")),
                 new KeyValuePair<string, string>("content-type", contentType),
-                new KeyValuePair<string, string>("connection", keepAlive ? "keep-alive" : "close"), 
-                new KeyValuePair<string, string>("content-length", Encoding.UTF8.GetByteCount(body).ToString(CultureInfo.InvariantCulture)), 
+                new KeyValuePair<string, string>("connection", keepAlive ? "keep-alive" : "close"),
+                new KeyValuePair<string, string>("content-length", Encoding.UTF8.GetByteCount(body).ToString(CultureInfo.InvariantCulture)),
             }), headers));
         }
 
@@ -154,7 +154,7 @@ namespace uhttpsharp
         {
             await writer.WriteAsync(_body).ConfigureAwait(false);
         }
-        
+
     }
 
     public sealed class HttpResponse : IHttpResponse
@@ -171,8 +171,8 @@ namespace uhttpsharp
         {
         }
 
-        public HttpResponse(HttpResponseCode code, string content, IEnumerable<KeyValuePair<string,string>> headers, bool closeConnection)
-            : this(code, "text/html; charset=utf-8", StringToStream(content), closeConnection,headers)
+        public HttpResponse(HttpResponseCode code, string content, IEnumerable<KeyValuePair<string, string>> headers, bool closeConnection)
+            : this(code, "text/html; charset=utf-8", StringToStream(content), closeConnection, headers)
         {
         }
 
@@ -203,8 +203,8 @@ namespace uhttpsharp
         }
 
 
-        public HttpResponse(HttpResponseCode code, byte[] contentStream, bool keepAliveConnection) 
-            : this (code, "text/html; charset=utf-8", new MemoryStream(contentStream), keepAliveConnection)
+        public HttpResponse(HttpResponseCode code, byte[] contentStream, bool keepAliveConnection)
+            : this(code, "text/html; charset=utf-8", new MemoryStream(contentStream), keepAliveConnection)
         {
         }
 
@@ -227,7 +227,7 @@ namespace uhttpsharp
         public async Task WriteBody(StreamWriter writer)
         {
             ContentStream.Position = 0;
-            await ContentStream.CopyToAsync(writer.BaseStream).ConfigureAwait(false);            
+            await ContentStream.CopyToAsync(writer.BaseStream).ConfigureAwait(false);
         }
         public HttpResponseCode ResponseCode
         {
@@ -247,7 +247,7 @@ namespace uhttpsharp
         {
             _headerStream.Position = 0;
             await _headerStream.CopyToAsync(writer.BaseStream).ConfigureAwait(false);
-            
+
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 
 namespace uhttpsharp
 {
@@ -115,7 +114,7 @@ namespace uhttpsharp
         {
             _child.Flush();
         }
-        
+
         public override long Seek(long offset, SeekOrigin origin)
         {
             return _child.Seek(offset, origin);
@@ -190,7 +189,7 @@ namespace uhttpsharp
         {
             get { return _child.CanSeek; }
         }
-        
+
         public override bool CanWrite
         {
             get { return _child.CanWrite; }

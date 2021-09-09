@@ -6,7 +6,7 @@ namespace uhttpsharp
     public static class HttpServerExtensions
     {
 
-        public static void  Use(this HttpServer server, Func<IHttpContext, Func<Task>, Task> method)
+        public static void Use(this HttpServer server, Func<IHttpContext, Func<Task>, Task> method)
         {
             server.Use(new AnonymousHttpRequestHandler(method));
         }

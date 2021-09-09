@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
 using uhttpsharp.Headers;
 using uhttpsharp.Logging;
@@ -15,7 +12,7 @@ namespace uhttpsharp.RequestProviders
         private static readonly char[] Separators = { '/' };
 
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
-        
+
         public async Task<IHttpRequest> Provide(IStreamReader reader)
         {
             // parse the http request
@@ -27,7 +24,7 @@ namespace uhttpsharp.RequestProviders
             var firstSpace = request.IndexOf(' ');
             var lastSpace = request.LastIndexOf(' ');
 
-            var tokens = new []
+            var tokens = new[]
             {
                 request.Substring(0, firstSpace),
                 request.Substring(firstSpace + 1, lastSpace - firstSpace - 1),
@@ -39,7 +36,7 @@ namespace uhttpsharp.RequestProviders
                 return null;
             }
 
-            
+
             var httpProtocol = tokens[2];
 
             var url = tokens[1];

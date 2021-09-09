@@ -18,9 +18,9 @@ namespace uhttpsharp.Clients
             // They have been added because .net doesn't allow me to wait for data (ReadAsyncBlock).
             // Instead, I've added Task.Delay in MyStreamReader.ReadBuffer when
             // Read returns without data.
-            
+
             // See https://github.com/Code-Sharp/uHttpSharp/issues/14
-            
+
             // Read Timeout of one second.
             // _stream.ReadTimeout = 1000;
         }

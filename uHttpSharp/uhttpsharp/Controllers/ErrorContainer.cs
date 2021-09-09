@@ -25,7 +25,7 @@ namespace uhttpsharp.Controllers
         {
             return
                 Task.FromResult<IControllerResponse>(new RenderResponse(HttpResponseCode.MethodNotAllowed,
-                    new {Message = string.Join(", ", _errors)}));
+                    new { Message = string.Join(", ", _errors) }));
         }
     }
 }

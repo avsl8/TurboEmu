@@ -4,7 +4,7 @@ using uhttpsharp.Clients;
 
 namespace uhttpsharp.Listeners
 {
-    public interface IHttpListener: IDisposable
+    public interface IHttpListener : IDisposable
     {
 
         Task<IClient> GetClient();

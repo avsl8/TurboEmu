@@ -47,7 +47,7 @@ namespace uhttpsharp.Handlers
             {
                 return value.Handle(context, nextHandler);
             }
-            
+
 
             // Route not found, Call next.
             return nextHandler();

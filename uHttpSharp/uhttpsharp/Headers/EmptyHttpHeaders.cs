@@ -9,7 +9,7 @@ namespace uhttpsharp.Headers
     public class EmptyHttpHeaders : IHttpHeaders
     {
         public static readonly IHttpHeaders Empty = new EmptyHttpHeaders();
-        
+
         private static readonly IEnumerable<KeyValuePair<string, string>> EmptyKeyValuePairs = new KeyValuePair<string, string>[0];
 
         private EmptyHttpHeaders()

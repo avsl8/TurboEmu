@@ -16,19 +16,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-using System.Text;
-using System.Net;
-using System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Sockets;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using uhttpsharp.Clients;
 using uhttpsharp.Headers;
-using uhttpsharp.RequestProviders;
 using uhttpsharp.Logging;
+using uhttpsharp.RequestProviders;
 
 namespace uhttpsharp
 {
@@ -38,7 +35,7 @@ namespace uhttpsharp
         private static readonly byte[] CrLfBuffer = Encoding.UTF8.GetBytes(CrLf);
 
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
-        
+
         private readonly IClient _client;
         private readonly Func<IHttpContext, Task> _requestHandler;
         private readonly IHttpRequestProvider _requestProvider;
@@ -52,7 +49,7 @@ namespace uhttpsharp
             _client = client;
             _requestHandler = requestHandler;
             _requestProvider = requestProvider;
-            
+
             Logger.InfoFormat("Got Client {0}", _remoteEndPoint);
 
             Task.Factory.StartNew(Process);
@@ -130,13 +127,13 @@ namespace uhttpsharp
         {
             IHttpResponse response = context.Response;
             IHttpRequest request = context.Request;
-    
+
             // Headers
             await writer.WriteLineAsync(string.Format("HTTP/1.1 {0} {1}",
                 (int)response.ResponseCode,
                 response.ResponseCode))
                 .ConfigureAwait(false);
-            
+
             foreach (var header in response.Headers)
             {
                 await writer.WriteLineAsync(string.Format("{0}: {1}", header.Key, header.Value)).ConfigureAwait(false);
@@ -156,7 +153,7 @@ namespace uhttpsharp
             // Body
             await response.WriteBody(writer).ConfigureAwait(false);
             await writer.FlushAsync().ConfigureAwait(false);
-            
+
         }
 
         public IClient Client
@@ -284,7 +281,7 @@ namespace uhttpsharp
 
             var currentHandler = handlers[index];
             var nextHandler = handlers.Aggregate(index + 1);
-            
+
             return context => currentHandler.Handle(context, () => nextHandler(context));
         }
 

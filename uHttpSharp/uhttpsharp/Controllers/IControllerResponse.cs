@@ -62,7 +62,7 @@ namespace uhttpsharp.Handlers
                     new KeyValuePair<string, string>("Location", _newLocation.ToString())
                 };
             return Task.FromResult<IHttpResponse>(
-                new HttpResponse(HttpResponseCode.Found, String.Empty, headers,false));
+                new HttpResponse(HttpResponseCode.Found, String.Empty, headers, false));
         }
     }
 

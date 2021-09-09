@@ -10,7 +10,7 @@ namespace uhttpsharp.Headers
     internal class QueryStringHttpHeaders : IHttpHeaders
     {
         private readonly HttpHeaders _child;
-        private static readonly char[] Seperators = {'&', '='};
+        private static readonly char[] Seperators = { '&', '=' };
 
         private readonly int _count;
 
@@ -25,9 +25,9 @@ namespace uhttpsharp.Headers
                 string value = null;
                 if (splittedKeyValues.Length > i + 1)
                 {
-                    value = Uri.UnescapeDataString(splittedKeyValues[i + 1]).Replace('+', ' ');    
+                    value = Uri.UnescapeDataString(splittedKeyValues[i + 1]).Replace('+', ' ');
                 }
-                
+
                 values[key] = value;
             }
 

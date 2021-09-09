@@ -226,7 +226,7 @@ namespace uhttpsharp.Handlers
         private async Task<IController> TryGetIndexerValue(Type controllerType, IHttpContext context, IController current, string parameter)
         {
             Func<IHttpContext, IController, string, Task<IController>>[] indexerFunctions;
-            
+
             if (IndexerRoutes.TryGetValue(controllerType, out indexerFunctions))
             {
                 foreach (var indexerFunction in indexerFunctions)
@@ -246,7 +246,7 @@ namespace uhttpsharp.Handlers
             }
 
             return null;
-        } 
+        }
 
         private Task<IControllerResponse> CallMethod(IHttpContext context, IController controller)
         {

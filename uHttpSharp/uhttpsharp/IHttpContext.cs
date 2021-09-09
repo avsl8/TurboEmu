@@ -33,7 +33,7 @@ namespace uhttpsharp
     public class CookiesStorage : ICookiesStorage
     {
         private static readonly string[] CookieSeparators = { "; ", "=" };
-        
+
         private readonly Dictionary<string, string> _values;
 
         private bool _touched;

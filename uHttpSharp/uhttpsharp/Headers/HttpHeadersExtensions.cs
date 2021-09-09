@@ -15,10 +15,10 @@ namespace uhttpsharp.Headers
         public static bool TryGetByName<T>(this IHttpHeaders headers, string name, out T value)
         {
             string stringValue;
-            
+
             if (headers.TryGetByName(name, out stringValue))
             {
-                value = (T) Convert.ChangeType(stringValue, typeof(T));
+                value = (T)Convert.ChangeType(stringValue, typeof(T));
                 return true;
             }
 

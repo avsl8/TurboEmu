@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TurboEmu
@@ -38,14 +34,14 @@ namespace TurboEmu
 
             try
             {
-                if(!Directory.Exists(LogPath))
+                if (!Directory.Exists(LogPath))
                     Directory.CreateDirectory(LogPath);
                 using (StreamWriter streamWriter = File.AppendText(LogFile))
                 {
                     streamWriter.WriteLine(DateTime.Now.ToString("o") + ": " + LogText);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Can't write logfile " + LogFile + "\n\nException:\n" + ex.Message, "TurboEmu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

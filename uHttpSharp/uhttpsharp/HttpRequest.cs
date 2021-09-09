@@ -86,7 +86,7 @@ namespace uhttpsharp
             {
                 if (QueryString == null)
                 {
-                    return Uri.OriginalString;    
+                    return Uri.OriginalString;
                 }
 
                 return Uri.OriginalString + "?" + QueryString.ToUriData();
@@ -107,7 +107,7 @@ namespace uhttpsharp
 
         string[] RequestParameters { get; }
 
-        IHttpPost Post {get;}
+        IHttpPost Post { get; }
 
         IHttpHeaders QueryString { get; }
 
@@ -116,9 +116,9 @@ namespace uhttpsharp
     public interface IHttpPost
     {
 
-        byte[] Raw {get;}
+        byte[] Raw { get; }
 
-        IHttpHeaders Parsed {get;}
+        IHttpHeaders Parsed { get; }
 
     }
 

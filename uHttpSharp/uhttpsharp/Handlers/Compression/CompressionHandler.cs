@@ -18,7 +18,7 @@ namespace uhttpsharp.Handlers.Compression
     {
         private readonly IEnumerable<ICompressor> _compressors;
         private static readonly char[] Seperator = { ',' };
-        
+
         /// <summary>
         /// Creates an instance of <see cref="CompressionHandler"/>
         /// </summary>

@@ -56,7 +56,7 @@ namespace uhttpsharp.Handlers
         public async Task Handle(IHttpContext context, System.Func<Task> next)
         {
             var requestPath = context.Request.Uri.OriginalString.TrimStart('/');
-            
+
             var httpRoot = Path.GetFullPath(HttpRootDirectory ?? ".");
             var path = Path.GetFullPath(Path.Combine(httpRoot, requestPath));
 
@@ -66,7 +66,7 @@ namespace uhttpsharp.Handlers
 
                 return;
             }
-                
+
             context.Response = new HttpResponse(GetContentType(path), File.OpenRead(path), context.Request.Headers.KeepAliveConnection());
         }
     }

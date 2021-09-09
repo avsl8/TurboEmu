@@ -19,11 +19,11 @@ namespace uhttpsharp.Attributes
         public T Get<T>(IHttpContext context, IModelBinder binder)
         {
             // Expando object
-            var state = (context.State as IDictionary<string,object>);
+            var state = (context.State as IDictionary<string, object>);
             object real;
             if (state != null && state.TryGetValue(_propertyName, out real) && real is T)
             {
-                    return (T)real;
+                return (T)real;
             }
 
             return default(T);
@@ -34,7 +34,7 @@ namespace uhttpsharp.Attributes
     {
         public FromBodyAttribute(string prefix = null) : base(prefix)
         {
-            
+
         }
 
         public override T Get<T>(IHttpContext context, IModelBinder binder)

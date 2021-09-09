@@ -7,7 +7,7 @@ namespace uhttpsharp.Headers
     internal class HttpHeadersDebuggerProxy
     {
         private readonly IHttpHeaders _real;
-        
+
         [DebuggerDisplay("{Value,nq}", Name = "{Key,nq}")]
         internal class HttpHeader
         {

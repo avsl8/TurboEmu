@@ -14,9 +14,9 @@ namespace uhttpsharp.Headers
     /// </summary>
     public class CompositeHttpHeaders : IHttpHeaders
     {
-        private static readonly IEqualityComparer<KeyValuePair<string, string>> HeaderComparer = 
+        private static readonly IEqualityComparer<KeyValuePair<string, string>> HeaderComparer =
             new KeyValueComparer<string, string, string>(k => k.Key, StringComparer.InvariantCultureIgnoreCase);
-        
+
         private readonly IEnumerable<IHttpHeaders> _children;
 
         public CompositeHttpHeaders(IEnumerable<IHttpHeaders> children)
@@ -24,7 +24,7 @@ namespace uhttpsharp.Headers
             _children = children;
         }
 
-        public CompositeHttpHeaders(params IHttpHeaders[] children) 
+        public CompositeHttpHeaders(params IHttpHeaders[] children)
         {
             _children = children;
         }

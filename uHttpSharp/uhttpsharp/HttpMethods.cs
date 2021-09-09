@@ -14,7 +14,7 @@ namespace uhttpsharp
         /// Asks for the response identical to the one that would correspond to a GET request, but without the response body
         /// </summary>
         Head,
-        
+
         /// <summary>
         /// Requests that the server accept the entity enclosed in the request as a new subordinate of the web resource identified by the URI
         /// </summary>
@@ -39,7 +39,7 @@ namespace uhttpsharp
         /// Returns the HTTP methods that the server supports for the specified URL
         /// </summary>
         Options,
-        
+
         /// <summary>
         /// Converts the request connection to a transparent TCP/IP tunnel
         /// </summary>

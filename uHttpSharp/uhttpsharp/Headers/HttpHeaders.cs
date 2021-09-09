@@ -2,12 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using uhttpsharp.RequestProviders;
 using uhttpsharp.Logging;
+using uhttpsharp.RequestProviders;
 
 namespace uhttpsharp.Headers
 {
@@ -68,7 +67,7 @@ namespace uhttpsharp.Headers
         {
             string body = Encoding.UTF8.GetString(_raw, 0, _readBytes);
             var parsed = new QueryStringHttpHeaders(body);
-           
+
             return parsed;
         }
 

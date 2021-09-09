@@ -28,7 +28,7 @@ namespace uhttpsharp.Handlers.Compression
                         .Concat(new[]
                         {
                             new KeyValuePair<string, string>("content-length", memoryStream.Length.ToString(CultureInfo.InvariantCulture)),
-                            new KeyValuePair<string, string>("content-encoding", encoding), 
+                            new KeyValuePair<string, string>("content-encoding", encoding),
                         })
                         .ToList());
 
@@ -51,12 +51,12 @@ namespace uhttpsharp.Handlers.Compression
 
         public static Task<IHttpResponse> CreateDeflate(IHttpResponse child)
         {
-            return Create("deflate",child, s => new DeflateStream(s, CompressionMode.Compress, true));
+            return Create("deflate", child, s => new DeflateStream(s, CompressionMode.Compress, true));
         }
 
         public static Task<IHttpResponse> CreateGZip(IHttpResponse child)
         {
-            return Create("gzip",child, s => new GZipStream(s, CompressionMode.Compress, true));
+            return Create("gzip", child, s => new GZipStream(s, CompressionMode.Compress, true));
         }
 
         public async Task WriteBody(StreamWriter writer)

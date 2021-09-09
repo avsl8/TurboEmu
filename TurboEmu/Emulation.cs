@@ -1,25 +1,25 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using PSHostsFile;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Management.Automation;
+using System.Net;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Windows.Forms;
-using System.Management.Automation;
-using System.Runtime.InteropServices;
-using System.Net;
-using System.IO;
-using Microsoft.Win32;
-using Newtonsoft.Json;
 using Titanium.Web.Proxy;
-using Titanium.Web.Proxy.Models;
 using Titanium.Web.Proxy.Http;
+using Titanium.Web.Proxy.Models;
 using uhttpsharp;
-using PSHostsFile;
 using uhttpsharp.Listeners;
-using System.Net.Sockets;
 using uhttpsharp.RequestProviders;
 
 namespace TurboEmu
@@ -90,7 +90,7 @@ namespace TurboEmu
 
                 /* Start TurboHUD */
                 bool StartTurboHUD = false;
-                switch(Method)
+                switch (Method)
                 {
                     case 0:
                         if (StartWebserver())

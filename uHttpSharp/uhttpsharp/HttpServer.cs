@@ -18,11 +18,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading.Tasks;
 using uhttpsharp.Listeners;
-using uhttpsharp.RequestProviders;
 using uhttpsharp.Logging;
+using uhttpsharp.RequestProviders;
 
 namespace uhttpsharp
 {

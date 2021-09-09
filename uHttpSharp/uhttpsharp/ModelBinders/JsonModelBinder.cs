@@ -1,7 +1,7 @@
-﻿using System;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Text;
 using uhttpsharp.Headers;
 
 namespace uhttpsharp.ModelBinders
@@ -17,7 +17,7 @@ namespace uhttpsharp.ModelBinders
 
         public JsonModelBinder() : this(JsonSerializer.CreateDefault())
         {
-            
+
         }
         public T Get<T>(byte[] raw, string prefix)
         {
@@ -42,11 +42,11 @@ namespace uhttpsharp.ModelBinders
 
             return jToken.ToObject<T>(_serializer);
         }
-        public T Get<T>(IHttpHeaders headers) 
+        public T Get<T>(IHttpHeaders headers)
         {
             throw new NotSupportedException();
         }
-        public T Get<T>(IHttpHeaders headers, string prefix) 
+        public T Get<T>(IHttpHeaders headers, string prefix)
         {
             throw new NotSupportedException();
         }

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using uhttpsharp.Headers;
 
 namespace uhttpsharp.Handlers
 {
-   
+
     public class BasicAuthenticationHandler : IHttpRequestHandler
     {
         private static readonly string BasicPrefix = "Basic ";
@@ -34,7 +32,7 @@ namespace uhttpsharp.Handlers
         {
             IDictionary<string, dynamic> session = context.State.Session;
             dynamic ipAddress;
-            
+
             if (!session.TryGetValue(_authenticationKey, out ipAddress) || ipAddress != context.RemoteEndPoint)
             {
                 if (TryAuthenticate(context, session))

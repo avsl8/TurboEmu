@@ -9,6 +9,6 @@ namespace uhttpsharp.Attributes
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
     public class NullableAttribute : Attribute
     {
-        
+
     }
 }

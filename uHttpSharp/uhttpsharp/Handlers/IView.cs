@@ -1,5 +1,5 @@
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace uhttpsharp.Handlers
 {
@@ -14,12 +14,12 @@ namespace uhttpsharp.Handlers
 
     public interface IView
     {
-        Task<IViewResponse> Render (IHttpContext context, object state);
+        Task<IViewResponse> Render(IHttpContext context, object state);
     }
 
     public class JsonView : IView
     {
-        public Task<IViewResponse> Render (IHttpContext context, object state)
+        public Task<IViewResponse> Render(IHttpContext context, object state)
         {
             return Task.FromResult<IViewResponse>(new JsonViewResponse(JsonConvert.SerializeObject(state)));
         }

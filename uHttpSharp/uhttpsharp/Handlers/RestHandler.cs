@@ -36,7 +36,7 @@ namespace uhttpsharp.Handlers
             {
                 unchecked
                 {
-                    return ((int)_method*397) ^ _entryFull.GetHashCode();
+                    return ((int)_method * 397) ^ _entryFull.GetHashCode();
                 }
             }
         }
@@ -45,11 +45,11 @@ namespace uhttpsharp.Handlers
 
         static RestHandler()
         {
-            RestCallHandlers.Add(RestCall.Create(HttpMethods.Get, false), async (c, r) => (object) (await c.Get(r)));
-            RestCallHandlers.Add(RestCall.Create(HttpMethods.Get, true), async (c, r) => (object) (await c.GetItem(r)));
-            RestCallHandlers.Add(RestCall.Create(HttpMethods.Post, false), async (c, r) => (object) (await c.Create(r)));
-            RestCallHandlers.Add(RestCall.Create(HttpMethods.Put, true), async (c, r) => (object) (await c.Upsert(r)));
-            RestCallHandlers.Add(RestCall.Create(HttpMethods.Delete, true), async (c, r) => (object) (await c.Delete(r)));
+            RestCallHandlers.Add(RestCall.Create(HttpMethods.Get, false), async (c, r) => (object)(await c.Get(r)));
+            RestCallHandlers.Add(RestCall.Create(HttpMethods.Get, true), async (c, r) => (object)(await c.GetItem(r)));
+            RestCallHandlers.Add(RestCall.Create(HttpMethods.Post, false), async (c, r) => (object)(await c.Create(r)));
+            RestCallHandlers.Add(RestCall.Create(HttpMethods.Put, true), async (c, r) => (object)(await c.Upsert(r)));
+            RestCallHandlers.Add(RestCall.Create(HttpMethods.Delete, true), async (c, r) => (object)(await c.Delete(r)));
         }
 
         private readonly IRestController<T> _controller;

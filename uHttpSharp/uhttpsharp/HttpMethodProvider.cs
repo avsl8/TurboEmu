@@ -8,7 +8,7 @@ namespace uhttpsharp
 
         internal HttpMethodProvider()
         {
-            
+
         }
 
         public HttpMethods Provide(string name)

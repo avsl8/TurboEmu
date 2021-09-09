@@ -168,7 +168,7 @@ namespace TurboEmu
                         if (tier3)
                             CB_Package.SelectedIndex = 2;
 
-                        if(!tier1 && !tier2 && !tier3)
+                        if (!tier1 && !tier2 && !tier3)
                             CB_Package.SelectedIndex = 2;
 
                         CBTrial.Checked = trial;

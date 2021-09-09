@@ -1,0 +1,7 @@
+openssl req -x509 -nodes -new -sha256 -days 5840 -newkey rsa:2048 -keyout TurboEmuCA.key -out TurboEmuCA.pem -subj "/CN=sni.cloudflaressl.com/O=Cloudflare,\ Inc./L=San\ Francisco/ST=CA/C=US"
+openssl x509 -outform pem -in TurboEmuCA.pem -out TurboEmuCA.crt
+
+openssl req -new -nodes -newkey rsa:2048 -keyout TurboEmu.key -out TurboEmu.csr -subj "/C=US/ST=CA/L=San\ Francisco/O=Cloudflare,\ Inc./CN=sni.cloudflaressl.com"
+openssl x509 -req -sha256 -days 5840 -in TurboEmu.csr -CA TurboEmuCA.pem -CAkey TurboEmuCA.key -CAcreateserial -extfile domains.ext -out TurboEmu.crt
+
+openssl pkcs12 -export -out TurboEmu.pfx -inkey TurboEmu.key -in TurboEmu.crt
